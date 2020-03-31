@@ -64,7 +64,7 @@
                 <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"><span class="oi oi-power-standby"></span></a>
             </li>
             <form action="{% url 'logout' %}" id="logout" method="post">
                 {% csrf_token %}
