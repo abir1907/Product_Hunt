@@ -11,7 +11,7 @@ class Product(models.Model):
     url = models.TextField()
     image = models.ImageField(upload_to='images/')
     icon = models.ImageField(upload_to='images/')
-    votes_total = models.IntegerField(default=1)
+    votes_total = models.IntegerField(default=0)
     hunter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -22,3 +22,8 @@ class Product(models.Model):
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%b %e %Y')
+
+
+class Vote(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    hunter = models.ForeignKey(User, on_delete=models.CASCADE)

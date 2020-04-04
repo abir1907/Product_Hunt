@@ -11,7 +11,12 @@
             <p>{{ product.summary }}</p>
         </div>
         <div class="col-4">
-            <button class="btn btn-primary btn-lg btn-block" onclick="document.getElementById('upvote{{ product.id }}').submit()"><span class="oi oi-caret-top"></span> Upvote {{ product.votes_total }}</button>
+            {% if product.id in votes %}
+                <button disabled class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ product.votes_total }}</button>
+                <h3>You already upvoted this product</h3>
+            {% else %}
+                <button class="btn btn-primary btn-lg btn-block" onclick="document.getElementById('upvote{{ product.id }}').submit()"><span class="oi oi-caret-top"></span> Upvote {{ product.votes_total }}</button>
+            {% endif %}
         </div>
         </div>
         <form method="post" action="{% url 'upvote' product.id %}" id="upvote{{ product.id }}">
