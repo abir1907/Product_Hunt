@@ -18,7 +18,7 @@
     <div class="col-4">
         {% if product.id in votes %}
             <button disabled class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ product.votes_total }}</button>
-            <h3>You already upvoted this product</h3>
+            <h5>You already upvoted this product</h5>
         {% else %}
             <button class="btn btn-primary btn-lg btn-block" onclick="document.getElementById('upvote{{ product.id }}').submit()"><span class="oi oi-caret-top"></span> Upvote {{ product.votes_total }}</button>
         {% endif %}

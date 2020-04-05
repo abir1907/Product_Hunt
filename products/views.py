@@ -7,7 +7,7 @@ from django.utils import timezone
 # Create your views here.
 
 def home(request):
-    products = Product.objects
+    products = Product.objects.order_by('id')
     votes = []
     if request.user.is_authenticated:
         user_votes = Vote.objects.filter(hunter=request.user).values('product_id')
